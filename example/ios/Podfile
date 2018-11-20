@@ -5,4 +5,8 @@ use_frameworks!
 
 target 'example' do
     pod 'Brightcove-Player-Core'
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 end

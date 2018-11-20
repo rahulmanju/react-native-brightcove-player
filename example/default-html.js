@@ -4,8 +4,8 @@ import {
     View,
     Dimensions
 } from 'react-native';
-import {BrightcovePlayer} from 'react-native-brightcove-player';
 import HTML from "react-native-render-html";
+import {RNVideoPlayer} from "./videoplayer";
 
 const styles = StyleSheet.create({
     container: {
@@ -31,9 +31,6 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         marginTop: 15
     },
-    mainControl: {
-        flexDirection: 'column'
-    },
     video: {
         flex: 1,
         width: '100%',
@@ -42,21 +39,13 @@ const styles = StyleSheet.create({
     },
     html: {
         padding: 8,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'green'
+        width:'100%',
+        height:'100%',
+        backgroundColor:'green'
     }
 });
 const videoRenderer = (attr: { src: string }) => (
-    <BrightcovePlayer
-        accountId="5828880654001"
-        videoId="5847340917001"
-        policyKey="BCpkADawqM0PHTSPOILBKnr5ilEEOmulFQU1U8pnAFyUDzEkTQ_is6rhgoN19PfJKaSYdWtDSGESdhehhDx9K0nrYnSuoOfZjtR30tfvuuElp1UrRm13qx5iVfm2eFIxiXP-AViPkg8D5qHH"
-        style={styles.video}
-        play={true}
-        autoPlay={true}
-        fullscreen={false}
-    />
+    <RNVideoPlayer source={{uri: attr.src}} />
 )
 
 
@@ -82,31 +71,13 @@ const defaultProps = {
     height: 0
 }
 
-export default class App extends Component {
+export default class DefaultHTML extends Component {
     render() {
         return (
-            <View style={styles.mainControl}>
-                <View style={styles.control}>
-                    <Button
-                        title="BrightCove HTML"
-                        onPress={() => this.setState({playing: true})}
-                    />
-                    <Button
-                        title="Default HTML"
-                        onPress={() => this.setState({playing: false})}
-                    />
-                </View>
-                <View style={styles.control}>
-                    <Button
-                        title="BrightCove Scroll"
-                        onPress={() => this.player.seekTo(this.state.currentTime + 10)}
-                    />
-                    <Button
-                        title="Default Scroll"
-                        onPress={() => this.player.seekTo(this.state.currentTime - 10)}
-                    />
-                </View>
-            </View>
+            <HTML
+                {...defaultProps}
+                style={styles.html}
+                html={htmlContent}/>
         );
     }
 }
