@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
     StyleSheet,
-    Dimensions
+    Dimensions, View
 } from 'react-native';
 import {BrightcovePlayer} from 'react-native-brightcove-player';
 import HTML from "react-native-render-html";
@@ -31,16 +31,12 @@ const styles = StyleSheet.create({
         marginTop: 15
     },
     video: {
-        flex: 1,
         width: '100%',
-        height: 220,
-        backgroundColor: 'red'
+        height: 220
     },
     html: {
-        padding: 8,
-        width:'100%',
-        height:'100%',
-        backgroundColor:'green'
+        flex: 1,
+        padding: 8
     }
 });
 const videoRenderer = (attr: { src: string }) => (
@@ -81,10 +77,12 @@ const defaultProps = {
 export default class BrightCoveHTML extends Component {
     render() {
         return (
-            <HTML
-                {...defaultProps}
-                style={styles.html}
-                html={htmlContent}/>
+            <View style={{flex: 1}}>
+                <HTML
+                    {...defaultProps}
+                    style={styles.html}
+                    html={htmlContent}/>
+            </View>
         );
     }
 }
