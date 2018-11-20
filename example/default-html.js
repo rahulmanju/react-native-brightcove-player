@@ -5,7 +5,7 @@ import {
     Dimensions
 } from 'react-native';
 import HTML from "react-native-render-html";
-import {RNVideoPlayer} from "./videoplayer";
+import {RNVideoPlayer} from "./video";
 
 const styles = StyleSheet.create({
     container: {

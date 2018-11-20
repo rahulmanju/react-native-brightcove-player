@@ -1,8 +1,11 @@
 package com.example;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.danikula.videocache.HttpProxyCacheServer;
 import com.facebook.react.ReactApplication;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import jp.manse.BrightcovePlayerPackage;
@@ -26,9 +29,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
             new ReactVideoPackage(),
-            new BrightcovePlayerPackage()
+            new BrightcovePlayerPackage(),
+            new BridgePackage()
       );
     }
 
@@ -47,5 +52,16 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+  }
+
+  private HttpProxyCacheServer proxy;
+
+  public static HttpProxyCacheServer getProxy(Context context) {
+    MainApplication app = (MainApplication) context.getApplicationContext();
+    return app.proxy == null ? (app.proxy = app.newProxy()) : app.proxy;
+  }
+
+  private HttpProxyCacheServer newProxy() {
+    return new HttpProxyCacheServer(this);
   }
 }

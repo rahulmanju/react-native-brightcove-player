@@ -1,4 +1,4 @@
 import {AppRegistry} from 'react-native';
-import DefaultScroll from "./default-scroll";
+import App from "./App";
 
-AppRegistry.registerComponent('example', () => DefaultScroll);
+AppRegistry.registerComponent('example', () => App);

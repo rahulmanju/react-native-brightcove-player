@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
     StyleSheet,
-    View,
     Dimensions
 } from 'react-native';
 import {BrightcovePlayer} from 'react-native-brightcove-player';
@@ -89,5 +88,4 @@ export default class BrightCoveHTML extends Component {
         );
     }
 }
-
 
