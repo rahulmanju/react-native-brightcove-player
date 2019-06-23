@@ -32,9 +32,9 @@ export default class BrightCoveScroll extends Component {
                         fullscreen={this.state.fullscreen}
                         disableDefaultControl={this.state.disableControl}
                         volume={this.state.volume}
-                        accountId="5828880654001"
-                        videoId="5847340917001"
-                        policyKey="BCpkADawqM0PHTSPOILBKnr5ilEEOmulFQU1U8pnAFyUDzEkTQ_is6rhgoN19PfJKaSYdWtDSGESdhehhDx9K0nrYnSuoOfZjtR30tfvuuElp1UrRm13qx5iVfm2eFIxiXP-AViPkg8D5qHH"
+                        accountId="6008340455001"
+                        videoId="6009486850001"
+                        policyKey="BCpkADawqM2HRDvtLxjif_KyjnhHtg7RS8advAhVCOHvDc2kHo9587NU_BE0VXSDoAaRCarG8hBlBqtrLvKXUh2SRVSAURawe8BPjFcVjCdfRgBqR6kdwzsf6LT0ojMErgEMKusg7um0tBFz"
                         onReady={() => console.log('onReady')}
                         onPlay={() => {
                             console.log('onPlay');
